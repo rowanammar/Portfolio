@@ -49,17 +49,26 @@ export default function SceneCanvas() {
       }}
     >
       <Canvas
-        camera={{ position: [0, 3, 8], fov: 50 }}
+        camera={{ position: [0, 2.5, 8], fov: 50 }}
         style={{ background: "transparent" }}
       >
         <fog attach="fog" args={["#000010", 10, 20]} />
-        <ambientLight intensity={0.4} />
+        <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
 
         <AnimatedCamera />
         <Chip />
         <Lines />
-        <OrbitControls enableZoom={true} />
+        <OrbitControls
+          enableDamping={true}
+          dampingFactor={0.15}
+          enableZoom={true}
+          minDistance={7}
+          maxDistance={20}
+          minPolarAngle={0}
+          maxPolarAngle={Math.PI}
+          target={[0, 0, 0]}
+        />
         <EffectComposer>
           <Bloom
             intensity={1.2} // How strong the glow is
