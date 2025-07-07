@@ -36,7 +36,7 @@ function AnimatedCamera() {
   return <a.group ref={camGroup} position={position} rotation={rotation} />;
 }
 
-export default function SceneCanvas() {
+export default function SceneCanvas({ onModelClick }) {
   return (
     <div
       style={{
@@ -58,15 +58,13 @@ export default function SceneCanvas() {
 
         <AnimatedCamera />
         <Chip />
-        <Lines />
+        <Lines onModelClick={onModelClick} />
         <OrbitControls
           enableDamping={true}
           dampingFactor={0.15}
           enableZoom={true}
           minDistance={7}
           maxDistance={20}
-          minPolarAngle={0}
-          maxPolarAngle={Math.PI}
           target={[0, 0, 0]}
         />
         <EffectComposer>
