@@ -7,30 +7,23 @@ export default function Chip(props) {
   const chipRef = useRef();
 
   useEffect(() => {
-    // Add glow shell to chip
-    const glowGroup = new THREE.Group();
-
+    // Remove emissive from chip material
     scene.traverse((child) => {
       if (child.isMesh) {
-        // Clone geometry for glow shell only, do NOT modify chip material
-        const glowGeometry = child.geometry.clone();
-        const glowMaterial = new THREE.MeshBasicMaterial({
-          color: new THREE.Color('#00faff'),
-          transparent: true,
-          opacity: 0.03, // very low for subtle outline
-          side: THREE.BackSide,
-          depthWrite: false,
+        child.material = new THREE.MeshStandardMaterial({
+          color: child.material.color,
+          metalness: 0.5,
+          roughness: 0.5,
+          emissive: 0x000000,
+          emissiveIntensity: 0,
         });
-        const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
-        glowMesh.scale.multiplyScalar(1.08); // slightly bigger for outline
-        glowGroup.add(glowMesh);
       }
     });
-    chipRef.current.add(glowGroup); // Glow shell
-    chipRef.current.add(scene);     // Original chip, unmodified
   }, [scene]);
 
   return (
-    <group ref={chipRef} {...props} scale={1} position={[0, 0, 0]} />
+    <group ref={chipRef} {...props} scale={1} position={[0, 0, 0]}>
+      <primitive object={scene} />
+    </group>
   );
-}
+} 
