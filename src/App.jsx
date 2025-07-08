@@ -3,11 +3,13 @@ import SceneCanvas from "./components/scene";
 import MatrixBackground from "./components/bg";
 import GlassPanel from "./components/GlassPanel";
 import "./components/glasspanel.css";
+import ContactPanel from './components/ContactPanel';
+import AboutMeTerminal from "./components/AboutPanel";
 
 const PANEL_MAP = [
   "projects",   // server
-  "about",      // id card
-  "contact",    // envelope
+  "contact",    // envelope (now second)
+  "about",      // id card (now third)
   "devops",     // cloud
 ];
 
@@ -22,21 +24,12 @@ function ProjectsPanel() {
   );
 }
 
-function AboutPanel() {
+function ContactMeSection() {
   return (
-    <>
-      <h2>About Me</h2>
-      <p>hagat 3ny lesa mesh 3rfaha</p>
-    </>
-  );
-}
-
-function ContactPanel() {
-  return (
-    <>
-      <h2>Contact Me</h2>
-      <p>please never talk to me</p>
-    </>
+    <div>
+     
+      <ContactPanel />
+    </div>
   );
 }
 
@@ -82,8 +75,8 @@ export default function App() {
         }[openPanel]}
       >
         {openPanel === "projects" && <ProjectsPanel />}
-        {openPanel === "about" && <AboutPanel />}
-        {openPanel === "contact" && <ContactPanel />}
+        {openPanel === "about" && <AboutMeTerminal />}
+        {openPanel === "contact" && <ContactMeSection />}
         {openPanel === "devops" && <DevOpsPanel />}
       </GlassPanel>
     </div>

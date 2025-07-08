@@ -5,23 +5,23 @@ import { a, useSpring } from '@react-spring/three';
 
 const modelFiles = [
   '/models/server (1).glb',
-  '/models/ID card.glb',
-  '/models/envelope.glb',
+  '/models/envelope.glb', // Swapped: Envelope now second
+  '/models/ID card.glb',  // Swapped: ID Card now third
   '/models/cloud.glb',
 ];
 
 const modelLabels = [
   'Projects',
-  'About Me',
-  'Contact Me',
+  'Contact Me',    // Swapped: Envelope label now second
+  'About Me',      // Swapped: ID Card label now third
   'Cloud',
 ];
 
 // Per-model rotation corrections (in radians)
 const modelRotations = [
   [0, 0, 0],                  // Server: face front
-  [0, 0, 0],                  // ID Card: no rotation
-  [Math.PI / 2, 0, 0],        // Envelope: upright
+  [Math.PI / 2, 0, 0],        // Envelope: upright (now second)
+  [0, 0, 0],                  // ID Card: no rotation (now third)
   [0, 0, 0],                  // Cloud: no rotation
 ];
 
@@ -183,5 +183,3 @@ export default function Lines({ onModelClick }) {
     </>
   );
 }
-
-// For further optimization, compress your .glb models with Draco or use lower-poly versions.

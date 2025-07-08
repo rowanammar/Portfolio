@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.terminal-container {
+  width: 700px;
+  height: 420px;
+  max-width: 100vw;
+  max-height: 90vh;
+  background-color: #0a0f1a;
+  color: #e6f1ff;
+  font-family: 'Share Tech Mono', monospace;
+  border-radius: 12px;
+  border: 1.8px solid #00f2fe;
+  box-shadow: 0 0 24px #00f2fe99;
+  padding: 1rem 1.2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  flex: none;
+}
+
+.terminal-header {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.terminal-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.terminal-btn.red {
+  background: #ff5f56;
+}
+.terminal-btn.yellow {
+  background: #ffbd2e;
+}
+.terminal-btn.green {
+  background: #27c93f;
+}
+
+.terminal-body {
+  flex: none;
+  height: 340px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: #c0d8ff;
+}
+
+/* Cursor blink animation */
+.terminal-cursor {
+  display: inline-block;
+  width: 0.7ch;
+  height: 1.1em;
+  background-color: #00f2fe;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Command lines */
+.prompt-line {
+  color: #6ee7ff;
+}
+.prompt-line .user {
+  color: #00f2fe;
+}
+.prompt-line .symbol {
+  color: #ffffffaa;
+}
+.command-output {
+  color: #b1d3ff;
+}
+
+.cherry-red {
+  color: #c41e3a;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .terminal-container {
+    width: 98vw;
+    height: 340px;
+    font-size: 0.85rem;
+  }
+  .terminal-body {
+    height: 260px;
+  }
+}

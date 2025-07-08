@@ -1,0 +1,125 @@
+/* From Uiverse.io by mRcOol7 */
+.contact-panel-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.contact-heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.contact-panel-inner {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.light-button button.bt {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.light-button button.bt .button-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  background-color: #0a0a0a;
+  border-radius: 5px;
+  color: #0f0f0f;
+  font-weight: 700;
+  transition: 300ms;
+  outline: #0f0f0f 2px solid;
+  outline-offset: 2px;
+}
+
+.light-button button.bt .button-holder p {
+  margin: 0;
+}
+
+.light-button button.bt .button-holder svg {
+  height: 50px;
+  fill: #0f0f0f;
+  transition: 300ms;
+}
+
+.light-button button.bt .light-holder {
+  position: absolute;
+  height: 200px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.light-button button.bt .light-holder .dot {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #0a0a0a;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.light-button button.bt .light-holder .light {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+  background: transparent;
+  transition: background 300ms;
+}
+
+/* LinkedIn */
+.light-button.linkedin button.bt:hover .button-holder svg {
+  fill: #0077b5;
+}
+.light-button.linkedin button.bt:hover .button-holder {
+  color: #0077b5;
+  outline: #0077b5 2px solid;
+}
+.light-button.linkedin button.bt:hover .light-holder .light {
+  background: linear-gradient(180deg, #0077b5 0%, rgba(255,255,255,0) 75%);
+}
+
+/* GitHub */
+.light-button.github button.bt:hover .button-holder svg {
+  fill: #6e40c9;
+}
+.light-button.github button.bt:hover .button-holder {
+  color: #6e40c9;
+  outline: #6e40c9 2px solid;
+}
+.light-button.github button.bt:hover .light-holder .light.github {
+  background: linear-gradient(180deg, #6e40c9 0%, rgba(255,255,255,0) 75%);
+}
+
+/* Gmail */
+.light-button.gmail button.bt:hover .button-holder svg {
+  fill: #D14836;
+}
+.light-button.gmail button.bt:hover .button-holder {
+  color: #D14836;
+  outline: #D14836 2px solid;
+}
+.light-button.gmail button.bt:hover .light-holder .light.gmail {
+  background: linear-gradient(180deg, #D14836 0%, rgba(255,255,255,0) 75%);
+} 

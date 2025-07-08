@@ -18,6 +18,13 @@ function AnimatedCamera({ onFinish }) {
   const fromQuat = new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
   const toQuat = new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0));
 
+  // Ease out back function for a settling effect
+  function easeOutBack(x) {
+    const c1 = 1.70158;
+    const c3 = c1 + 1;
+    return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+  }
+
   useFrame((_, delta) => {
     // Ensure initial camera setup
     if (!initialized) {
@@ -31,10 +38,16 @@ function AnimatedCamera({ onFinish }) {
       const nextT = Math.min(t + delta * 0.4, 1);
       setT(nextT);
 
-      camera.position.lerpVectors(fromPos, toPos, nextT);
-      camera.quaternion.slerpQuaternions(fromQuat, toQuat, nextT);
+      // Use easing for a more natural transition, but clamp to 1
+      let easedT = easeOutBack(nextT);
+      easedT = Math.min(easedT, 1);
+      camera.position.lerpVectors(fromPos, toPos, easedT);
+      camera.quaternion.slerpQuaternions(fromQuat, toQuat, easedT);
 
       if (nextT >= 1) {
+        // Explicitly set to final position and rotation to avoid snapping
+        camera.position.copy(toPos);
+        camera.quaternion.copy(toQuat);
         onFinish?.(); // Notify parent when animation finishes
       }
     }
@@ -57,25 +70,24 @@ export default function SceneCanvas({ onModelClick }) {
         overflow: "hidden",
       }}
     >
-      <Canvas camera={{ position: [0, 2, 10], fov: 50 }}>
+      <Canvas camera={{ position: [0, 6, 8], fov: 50 }}>
         <fog attach="fog" args={["#000010", 10, 20]} />
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
 
-        <AnimatedCamera onFinish={() => setCameraDone(true)} />
+        {/* No more AnimatedCamera */}
         <Chip />
         <Lines onModelClick={onModelClick} />
 
-        {cameraDone && (
-          <OrbitControls
-            enableDamping={true}
-            dampingFactor={0.15}
-            enableZoom={true}
-            minDistance={7}
-            maxDistance={20}
-            target={[0, 0, 0]}
-          />
-        )}
+        {/* OrbitControls always enabled */}
+        <OrbitControls
+          enableDamping={true}
+          dampingFactor={0.15}
+          enableZoom={true}
+          minDistance={6}
+          maxDistance={20}
+          target={[0, 0, 0]}
+        />
 
         <EffectComposer>
           <Bloom

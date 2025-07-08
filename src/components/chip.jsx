@@ -4,43 +4,28 @@ import { useRef, useEffect } from 'react';
 
 export default function Chip(props) {
   const { scene } = useGLTF('/models/cpu.glb');
-  const chipRef = useRef();
 
   useEffect(() => {
-    // Force a visible material for all meshes (for debugging black model)
     scene.traverse((child) => {
       if (child.isMesh) {
-        child.material = new THREE.MeshStandardMaterial({
-          color: 0x00faff,
-          metalness: 0.5,
-          roughness: 0.4,
-        });
+        child.material.color = new THREE.Color('#e0e0e0');
+        child.material.emissiveIntensity = 3;
       }
     });
-
-    // Add glow shell to chip (clamped opacity and scale)
-    const glowGroup = new THREE.Group();
-    scene.traverse((child) => {
-      if (child.isMesh) {
-        const glowGeometry = child.geometry.clone();
-        const glowMaterial = new THREE.MeshBasicMaterial({
-          color: new THREE.Color('#00faff'),
-          transparent: true,
-          opacity: 0.015, // even lower for subtle outline
-          side: THREE.BackSide,
-          depthWrite: false,
-        });
-        const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
-        glowMesh.scale.multiplyScalar(1.03); // only slightly bigger for outline
-        glowGroup.add(glowMesh);
-      }
-    });
-    chipRef.current.clear && chipRef.current.clear(); // Remove previous children if any
-    chipRef.current.add(glowGroup); // Glow shell
-    chipRef.current.add(scene);     // Original chip, unmodified
   }, [scene]);
 
+  const chipRef = useRef(null);
+
   return (
-    <group ref={chipRef} {...props} scale={1} position={[0, 0, 0]} />
+    <group
+      ref={chipRef}
+      {...props}
+      scale={[2.85, 3.85, 2.85]}
+      position={[0, -0.1, 0]}
+      rotation={[0, Math.PI, 0]}
+    >
+      <directionalLight intensity={5} position={[5, 5, 5]} />
+      <primitive object={scene} />
+    </group>
   );
 }
