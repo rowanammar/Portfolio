@@ -3,27 +3,24 @@ import SceneCanvas from "./components/scene";
 import MatrixBackground from "./components/bg";
 import GlassPanel from "./components/GlassPanel";
 import "./components/glasspanel.css";
-import ContactPanel from './components/ContactPanel';
+import ContactPanel from "./components/ContactPanel";
 import AboutMeTerminal from "./components/AboutPanel";
-import Loader from "./components/loader"; 
-import "./components/loader.css";
+import Loader from "./components/loader";
 import { useEffect } from "react";
 import DevOpsPanel from "./components/DevOpsPanel";
 
 const PANEL_MAP = [
-  "projects",   // server
-  "contact",    // envelope (now second)
-  "about",      // id card (now third)
-  "devops",     // cloud
+  "projects", // server
+  "contact", // envelope (now second)
+  "about", // id card (now third)
+  "devops", // cloud
 ];
 
 function ProjectsPanel() {
   return (
     <>
       <h2>Projects</h2>
-      <ul>
-        projects ana 3mlaha
-      </ul>
+      <ul>projects ana 3mlaha</ul>
     </>
   );
 }
@@ -31,7 +28,6 @@ function ProjectsPanel() {
 function ContactMeSection() {
   return (
     <div>
-     
       <ContactPanel />
     </div>
   );
@@ -40,6 +36,7 @@ function ContactMeSection() {
 export default function App() {
   const [openPanel, setOpenPanel] = useState(null);
   const [pendingPanel, setPendingPanel] = useState(null);
+  const [modelLoaded, setModelLoaded] = useState(false);
 
   const handleModelClick = (index) => {
     setPendingPanel(PANEL_MAP[index]);
@@ -54,20 +51,33 @@ export default function App() {
   };
 
   return (
-    <div style={{ height: '100vh', width: '100vw', overflow: 'hidden', position: 'relative' }}>
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
       <MatrixBackground />
+      {!modelLoaded && <Loader />}
       {!openPanel && !pendingPanel && (
-        <SceneCanvas onModelClick={handleModelClick} />
+        <SceneCanvas
+          onModelClick={handleModelClick}
+          onFinishLoading={() => setModelLoaded(true)}
+        />
       )}
       <GlassPanel
         open={!!openPanel}
         onClose={handleClosePanel}
-        color={{
-          projects: "#00f2fe",
-          about: "#4facfe",
-          contact: "#00eaff",
-          devops: "#61dafbaa",
-        }[openPanel]}
+        color={
+          {
+            projects: "#00f2fe",
+            about: "#4facfe",
+            contact: "#00eaff",
+            devops: "#61dafbaa",
+          }[openPanel]
+        }
       >
         {openPanel === "projects" && <ProjectsPanel />}
         {openPanel === "about" && <AboutMeTerminal />}
@@ -77,4 +87,3 @@ export default function App() {
     </div>
   );
 }
-

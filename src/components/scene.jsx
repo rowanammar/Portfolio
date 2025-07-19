@@ -49,7 +49,8 @@ function AnimatedCamera({ onFinish }) {
         // Explicitly set to final position and rotation to avoid snapping
         camera.position.copy(toPos);
         camera.quaternion.copy(toQuat);
-        onFinish?.(); // Notify parent when animation finishes
+        onFinish?.(); 
+        onFinishLoading?.();
       }
     }
   });
@@ -57,7 +58,8 @@ function AnimatedCamera({ onFinish }) {
   return null;
 }
 
-export default function SceneCanvas({ onModelClick }) {
+export default function SceneCanvas({ onModelClick, onFinishLoading }) {
+
   const [cameraDone, setCameraDone] = useState(false);
 
   // Responsive camera FOV
