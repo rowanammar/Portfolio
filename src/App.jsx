@@ -5,6 +5,10 @@ import GlassPanel from "./components/GlassPanel";
 import "./components/glasspanel.css";
 import ContactPanel from './components/ContactPanel';
 import AboutMeTerminal from "./components/AboutPanel";
+import Loader from "./components/loader"; 
+import "./components/loader.css";
+import { useEffect } from "react";
+import DevOpsPanel from "./components/DevOpsPanel";
 
 const PANEL_MAP = [
   "projects",   // server
@@ -30,15 +34,6 @@ function ContactMeSection() {
      
       <ContactPanel />
     </div>
-  );
-}
-
-function DevOpsPanel() {
-  return (
-    <>
-      <h2>Cloud</h2>
-      <p>sahaba</p>
-    </>
   );
 }
 
@@ -71,7 +66,7 @@ export default function App() {
           projects: "#00f2fe",
           about: "#4facfe",
           contact: "#00eaff",
-          devops: "#7d5fff",
+          devops: "#61dafbaa",
         }[openPanel]}
       >
         {openPanel === "projects" && <ProjectsPanel />}

@@ -5,6 +5,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import Chip from "./chip";
 import Lines from "./lines";
 import * as THREE from "three";
+import './scene.css';
 
 // Animated camera component
 function AnimatedCamera({ onFinish }) {
@@ -59,36 +60,29 @@ function AnimatedCamera({ onFinish }) {
 export default function SceneCanvas({ onModelClick }) {
   const [cameraDone, setCameraDone] = useState(false);
 
+  // Responsive camera FOV
+  const isMobile = window.innerWidth < 600;
+  const cameraProps = isMobile
+    ? { position: [0, 6, 12], fov: 65 }
+    : { position: [0, 6, 8], fov: 50 };
+
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
-      <Canvas camera={{ position: [0, 6, 8], fov: 50 }}>
+    <div className="scene-canvas-container">
+      <Canvas camera={cameraProps}>
         <fog attach="fog" args={["#000010", 10, 20]} />
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
-
-        {/* No more AnimatedCamera */}
         <Chip />
         <Lines onModelClick={onModelClick} />
-
-        {/* OrbitControls always enabled */}
         <OrbitControls
           enableDamping={true}
           dampingFactor={0.15}
           enableZoom={true}
-          minDistance={6}
-          maxDistance={20}
+          minDistance={isMobile ? 8 : 6}
+          maxDistance={isMobile ? 16 : 20}
           target={[0, 0, 0]}
+          enablePan={!isMobile}
         />
-
         <EffectComposer>
           <Bloom
             intensity={1.2}

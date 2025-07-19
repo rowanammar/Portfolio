@@ -94,3 +94,18 @@
     height: 260px;
   }
 }
+
+@media (max-width: 600px) {
+  .terminal-container {
+    width: 98vw;
+    height: 260px;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.5rem;
+    min-width: 0;
+    min-height: 0;
+  }
+  .terminal-body {
+    height: 180px;
+    font-size: 0.75rem;
+  }
+}
