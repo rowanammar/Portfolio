@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const desktopWallpaper = "/windows.jpeg";
-const projectsDataPath = "/src/data/projects.json";
+const projectsDataPath = "/projects.json";
 
 // Simple SVG folder icon
 const FolderIcon = ({ className }) => (
@@ -341,6 +341,115 @@ export default function LaptopDesktop() {
           }}
         />
       </div>
+      {/* Popup Modal for 'You are already here' */}
+      {showPopup && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0,0,0,0.18)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <div
+            style={{
+              background: '#ece9d8',
+              border: '2.5px solid #395fa8',
+              borderRadius: 6,
+              boxShadow: '4px 8px 32px #0007',
+              minWidth: 340,
+              minHeight: 120,
+              fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+            }}
+          >
+            {/* Title Bar */}
+            <div
+              style={{
+                background: 'linear-gradient(90deg, #1856b6 0%, #3a7bd5 100%)',
+                color: '#fff',
+                fontWeight: 700,
+                fontSize: '1.08rem',
+                padding: '6px 12px',
+                display: 'flex',
+                alignItems: 'center',
+                borderBottom: '1.5px solid #395fa8',
+                userSelect: 'none',
+                position: 'relative',
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 20 20" style={{marginRight: 8}}><circle cx="10" cy="10" r="10" fill="#fff"/><text x="10" y="15" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#1856b6">i</text></svg>
+        
+              <button
+                onClick={() => setShowPopup(false)}
+                aria-label="Close"
+                style={{
+                  position: 'absolute',
+                  right: 6,
+                  top: 3,
+                  width: 22,
+                  height: 22,
+                  background: '#ece9d8',
+                  border: '1.5px solid #888',
+                  borderRadius: 2,
+                  color: '#222',
+                  fontWeight: 900,
+                  fontSize: '1.1rem',
+                  cursor: 'pointer',
+                  boxShadow: 'inset 1px 1px 0 #fff',
+                  padding: 0,
+                  lineHeight: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                onMouseOver={e => e.currentTarget.style.background = '#d6d3c4'}
+                onMouseOut={e => e.currentTarget.style.background = '#ece9d8'}
+              >
+                ×
+              </button>
+            </div>
+            {/* Content */}
+            <div style={{ display: 'flex', alignItems: 'center', padding: '24px 24px 12px 24px' }}>
+              <svg width="38" height="38" viewBox="0 0 32 32" style={{marginRight: 18}}><circle cx="16" cy="16" r="16" fill="#3a7bd5"/><text x="16" y="25" textAnchor="middle" fontSize="24" fontWeight="bold" fill="#fff">i</text></svg>
+              <span style={{ color: '#222', fontSize: '1.13rem', fontWeight: 500, textAlign: 'left' }}>
+                You are already here!
+              </span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '0 18px 18px 0' }}>
+              <button
+                onClick={() => setShowPopup(false)}
+                style={{
+                  minWidth: 80,
+                  padding: '4px 0',
+                  background: 'linear-gradient(180deg, #f8f8f8 0%, #d6d3c4 100%)',
+                  border: '2px outset #fff',
+                  borderRadius: 2,
+                  color: '#222',
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                  boxShadow: 'inset 1px 1px 0 #fff',
+                  marginLeft: 8,
+                  cursor: 'pointer',
+                  fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+                }}
+                onMouseOver={e => e.currentTarget.style.background = '#e4e3de'}
+                onMouseOut={e => e.currentTarget.style.background = 'linear-gradient(180deg, #f8f8f8 0%, #d6d3c4 100%)'}
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
