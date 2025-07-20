@@ -1,0 +1,49 @@
+[
+  {
+    "title": "F1 Portal",
+    "subtitle": "Welcome to F1 Portal – a fun and interactive website built to celebrate the thrill of Formula One racing! I created this site as a hands-on project to learn React and bring the excitement of F1 to life.",
+    "description": "A fun and interactive website to celebrate F1, built as a hands-on React project.",
+    "whatToExpect": [
+      "Driver Cards: Flip to reveal team colors and stats.",
+      "3D Animated Circuits: Carousel of F1 tracks with hover details.",
+      "Live Races & Standings: Real-time data from the Ergast API.",
+      "Responsive Design: Looks great on any device."
+    ],
+    "tech": ["React", "CSS", "Ergast API"],
+    "link": "https://formula1-website-3955ba3cn-rawans-projects-9230ed37.vercel.app/",
+    "icon": "/f1.png",
+    "demo": "/f1.gif"
+  },
+  {
+    "title": "Dostoevsky Tribute",
+    "subtitle": "A tribute website for the great Russian author Fyodor Dostoevsky.",
+    "description": "This website is a tribute to the life and works of the renowned Russian writer Fyodor Dostoevsky. It was created as a learning project to explore the usage of Three.js for 3D modeling, CSS animations, and to express admiration for Dostoevsky's literary contributions.",
+    "whatToExpect": [
+      "Index Page: Contains a brief biography of Fyodor Dostoevsky.",
+      "Works Page: Displays a 3D model of a bookshelf using Three.js. Clicking on a book opens a flipbook with details about the selected book.",
+      "Timeline Page: Presents a chronological timeline of significant events in Dostoevsky's life.",
+      "Characters Page: Features flip cards showcasing some of Dostoevsky's most important characters, discussing their symbolism and relevance.",
+      "Quotes Page: Includes a collection of memorable quotes by Dostoevsky. Quotes are clickable for easy copying."
+    ],
+    "tech": ["Three.js", "HTML", "CSS", "JavaScript"],
+    "link": "https://rowanammar.github.io/Dostoyevsky---A-tribute/",
+    "icon": "/shelf.png",
+    "demo": "/dostoevsky.gif"
+  },
+  {
+    "title": "This Portfolio (Recursion Edition)",
+    "subtitle": "Showcasing my portfolio... inside my portfolio. Is this recursion or just narcissism?",
+    "description": "A 3D interactive portfolio built with React, Three.js, and CSS, featuring a floating laptop, glass panels, and a desktop simulation to showcase my projects in a creative way.",
+    "whatToExpect": [
+      "3D Laptop Model: Clickable and interactive, opens a simulated desktop UI.",
+      "Project Desktop: Each project is displayed as a desktop shortcut with a windowed preview.",
+      "Panels: About, Contact, DevOps, and more, all in a glassmorphic floating UI.",
+      "Mobile Responsive: Looks great on any device.",
+      "Futuristic Design: Neon, glass, and a Windows-inspired vibe."
+    ],
+    "tech": ["React", "Three.js", "CSS", "Vite"],
+    "link": "#",
+    "icon": "/ana.png",
+    "demo": "/portfolio.gif"
+  }
+]
