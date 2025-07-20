@@ -14,11 +14,7 @@ export default function DevOpsPanel() {
         alignItems: 'center',
         gap: '0.7rem',
       }}>
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 8px #00faff)' }}>
-          <circle cx="19" cy="19" r="18" stroke="#00faff" strokeWidth="2.5" fill="#0a0f1a" />
-          <path d="M10 24C12 18 26 18 28 24" stroke="#00faff" strokeWidth="2" strokeLinecap="round"/>
-          <ellipse cx="19" cy="15" rx="6" ry="4" fill="#00faff33" stroke="#00faff" strokeWidth="1.2"/>
-        </svg>
+      
         AWS Cloud Badges
       </h2>
       <div style={{

@@ -5,7 +5,6 @@ import GlassPanel from "./components/GlassPanel";
 import "./components/glasspanel.css";
 import ContactPanel from "./components/ContactPanel";
 import AboutMeTerminal from "./components/AboutPanel";
-import Loader from "./components/loader";
 import { useEffect } from "react";
 import DevOpsPanel from "./components/DevOpsPanel";
 
@@ -60,7 +59,6 @@ export default function App() {
       }}
     >
       <MatrixBackground />
-      {!modelLoaded && <Loader />}
       {!openPanel && !pendingPanel && (
         <SceneCanvas
           onModelClick={handleModelClick}
