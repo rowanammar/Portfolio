@@ -82,7 +82,7 @@ export default function Lines({ onModelClick }) {
     return (
       <group position={[0, 1.1, 0]}>
         <mesh>
-          <planeGeometry args={[1.7, 0.5]} />
+          <planeGeometry args={[1.9, 0.6]} />
           <meshBasicMaterial
             color={'#0a0a1a'}
             transparent
@@ -90,7 +90,7 @@ export default function Lines({ onModelClick }) {
           />
         </mesh>
         <mesh>
-          <planeGeometry args={[1.75, 0.55]} />
+          <planeGeometry args={[2.05, 0.75]} />
           <meshBasicMaterial
             color={neonColor}
             transparent
@@ -98,16 +98,23 @@ export default function Lines({ onModelClick }) {
             side={THREE.BackSide}
           />
         </mesh>
-        <Html center style={{ pointerEvents: 'none' }}>
+        <Html center style={{ pointerEvents: 'none', zIndex: 20 }} distanceFactor={1.6}>
           <div style={{
             color: neonColor,
-            fontWeight: 'bold',
-            fontSize: '1.2em',
-            textShadow: '0 0 8px #00faff, 0 0 16px #00faff',
-            letterSpacing: '0.05em',
+            fontWeight: 800,
+            fontSize: '1.25em',
+            textShadow: '0 0 12px #00faff, 0 0 32px #00faff',
+            letterSpacing: '0.08em',
             textAlign: 'center',
-            fontFamily: 'sans-serif',
+            fontFamily: 'Orbitron, Share Tech Mono, monospace',
             userSelect: 'none',
+            padding: '0.18em 1.1em',
+            minWidth: 120,
+            whiteSpace: 'nowrap',
+            borderRadius: 8,
+            boxShadow: '0 0 16px #00faff55',
+            background: 'rgba(10,16,32,0.18)',
+            border: '1.5px solid #00faff44',
           }}>{text}</div>
         </Html>
       </group>
@@ -174,8 +181,36 @@ export default function Lines({ onModelClick }) {
                 style={{ cursor: 'pointer' }}
               >
                 <primitive object={model} />
-                {isHovered && <NeonLabel text={modelLabels[i]} />}
               </a.group>
+            )}
+            {/* Billboard NeonLabel using Html so it always faces the camera and stays above the model */}
+            {model && isHovered && (
+              <Html
+                position={[end[0], end[1] + floatHeight + 1.1, end[2]]}
+                center
+                transform
+                occlude={false}
+                style={{ pointerEvents: 'none', zIndex: 20 }}
+                distanceFactor={1.6}
+              >
+                <div style={{
+                  color: neonColor,
+                  fontWeight: 900,
+                  fontSize: '2.1em',
+                  textShadow: '0 0 18px #00faff, 0 0 48px #00faff',
+                  letterSpacing: '0.12em',
+                  textAlign: 'center',
+                  fontFamily: 'Orbitron, Share Tech Mono, monospace',
+                  userSelect: 'none',
+                  padding: '0.32em 2.2em',
+                  minWidth: 220,
+                  whiteSpace: 'nowrap',
+                  borderRadius: 12,
+                  boxShadow: '0 0 32px #00faff99',
+                  background: 'rgba(10,16,32,0.28)',
+                  border: '2.5px solid #00faff88',
+                }}>{modelLabels[i]}</div>
+              </Html>
             )}
           </group>
         );
