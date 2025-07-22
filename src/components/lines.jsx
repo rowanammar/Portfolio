@@ -97,24 +97,14 @@ export default function Lines({ onModelClick, neonColor = "#00faff" }) {
             side={THREE.BackSide}
           />
         </mesh>
-        <Html center style={{ pointerEvents: 'none', zIndex: 20 }} distanceFactor={1.6}>
-          <div style={{
-            color: neonColor,
-            fontWeight: 800,
-            fontSize: '1.25em',
-            textShadow: '0 0 12px #00faff, 0 0 32px #00faff',
-            letterSpacing: '0.08em',
-            textAlign: 'center',
-            fontFamily: 'Orbitron, Share Tech Mono, monospace',
-            userSelect: 'none',
-            padding: '0.18em 1.1em',
-            minWidth: 120,
-            whiteSpace: 'nowrap',
-            borderRadius: 8,
-            boxShadow: '0 0 16px #00faff55',
-            background: 'rgba(10,16,32,0.18)',
-            border: '1.5px solid #00faff44',
-          }}>{text}</div>
+        <Html center style={{
+          color: neonColor,
+          textShadow: `0 0 12px ${neonColor}, 0 0 32px ${neonColor}`,
+          boxShadow: `0 0 16px ${neonColor}55`,
+          border: `1.5px solid ${neonColor}44`,
+          // ...
+        }}>
+          {text}
         </Html>
       </group>
     );
@@ -196,7 +186,7 @@ export default function Lines({ onModelClick, neonColor = "#00faff" }) {
                   color: neonColor,
                   fontWeight: 900,
                   fontSize: '2.1em',
-                  textShadow: '0 0 18px #00faff, 0 0 48px #00faff',
+                  textShadow: `0 0 18px ${neonColor}, 0 0 48px ${neonColor}`,
                   letterSpacing: '0.12em',
                   textAlign: 'center',
                   fontFamily: 'Orbitron, Share Tech Mono, monospace',
@@ -205,9 +195,9 @@ export default function Lines({ onModelClick, neonColor = "#00faff" }) {
                   minWidth: 220,
                   whiteSpace: 'nowrap',
                   borderRadius: 12,
-                  boxShadow: '0 0 32px #00faff99',
+                  boxShadow: `0 0 32px ${neonColor}99`,
                   background: 'rgba(10,16,32,0.28)',
-                  border: '2.5px solid #00faff88',
+                  border: `2.5px solid ${neonColor}88`,
                 }}>{modelLabels[i]}</div>
               </Html>
             )}

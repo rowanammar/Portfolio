@@ -5,12 +5,18 @@
   --terminal-bg: #0a192f;
   --terminal-header: #1a2a4f;
   --terminal-title: #00faff;
+  --prompt-line: #6ee7ff
+  --prompt-line-user: #00f2fe;
+  --background-color: #1a4fff22;
 }
 .hacker-green-theme {
   --accent: #00ff99;
   --terminal-bg: #0a1a10;
   --terminal-header: #163a2f;
   --terminal-title: #00ff99;
+  --prompt-line: #39ff14;
+  --prompt-line-user: #00ff96;
+  --background-color: #1a4f0022;
 }
 
 .terminal-container {
@@ -22,8 +28,8 @@
   color: #e6f1ff;
   font-family: 'Share Tech Mono', monospace;
   border-radius: 12px;
-  border: 1.8px solid #00f2fe;
-  box-shadow: 0 0 24px #00f2fe99;
+  border: 1.8px solid var(--accent);
+  box-shadow: 0 0 24px var(--terminal-header);
   padding: 1rem 1.2rem;
   overflow: hidden;
   display: flex;
@@ -70,7 +76,7 @@
   display: inline-block;
   width: 0.7ch;
   height: 1.1em;
-  background-color: #00f2fe;
+  background-color: var(--accent);
   margin-left: 2px;
   animation: blink 1s step-end infinite;
   color: var(--accent);
@@ -83,10 +89,10 @@
 
 /* Command lines */
 .prompt-line {
-  color: #6ee7ff;
+  color: var(--prompt-line);
 }
 .prompt-line .user {
-  color: #00f2fe;
+  color: var(--prompt-line-user);
 }
 .prompt-line .symbol {
   color: #ffffffaa;

@@ -9,6 +9,7 @@
   --panel-shadow2: #00eaff33;
   --panel-shadow3: #00eaff99;
   --text-shadow: #00eaff99;
+  --backgroundd: rgba(20, 30, 60, 0.38);
 }
 .hacker-green-theme {
   --accent: #00ff99;
@@ -19,6 +20,7 @@
   --panel-shadow2: #00ff9933;
   --panel-shadow3: #00ff9999;
   --text-shadow: #00ff9999;
+  --backgroundd: rgba(10, 26, 16, 0.38);
 }
 
 .glass-overlay {
@@ -44,7 +46,7 @@
   max-width: 96vw;
   min-height: 220px;
   max-height: 85vh;
-  background: rgba(20, 30, 60, 0.38);
+  background: var(--backgroundd);
   border: 2.5px solid;
   border-radius: 22px;
   box-shadow: 0 0 32px 4px var(--panel-shadow), 0 0 0 2.5px var(--accent3);
