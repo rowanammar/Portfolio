@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+:root {
+  --accent: #00faff;
+  --terminal-bg: #0a192f;
+  --terminal-header: #1a2a4f;
+  --terminal-title: #00faff;
+}
+.hacker-green-theme {
+  --accent: #00ff99;
+  --terminal-bg: #0a1a10;
+  --terminal-header: #163a2f;
+  --terminal-title: #00ff99;
+}
+
 .terminal-container {
   width: 700px;
   height: 420px;
   max-width: 100vw;
   max-height: 90vh;
-  background-color: #0a0f1a;
+  background: var(--terminal-bg);
   color: #e6f1ff;
   font-family: 'Share Tech Mono', monospace;
   border-radius: 12px;
@@ -24,6 +37,8 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.8rem;
+  background: var(--terminal-header);
+  color: var(--terminal-title);
 }
 .terminal-btn {
   width: 12px;
@@ -58,6 +73,7 @@
   background-color: #00f2fe;
   margin-left: 2px;
   animation: blink 1s step-end infinite;
+  color: var(--accent);
 }
 @keyframes blink {
   50% {
@@ -76,7 +92,7 @@
   color: #ffffffaa;
 }
 .command-output {
-  color: #b1d3ff;
+  color: #fff;
 }
 
 .cherry-red {

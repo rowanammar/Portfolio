@@ -58,7 +58,7 @@ function AnimatedCamera({ onFinish }) {
   return null;
 }
 
-export default function SceneCanvas({ onModelClick, onFinishLoading }) {
+export default function SceneCanvas({ onModelClick, onFinishLoading, accentColor, theme }) {
 
   const [cameraDone, setCameraDone] = useState(false);
 
@@ -75,7 +75,7 @@ export default function SceneCanvas({ onModelClick, onFinishLoading }) {
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
         <Chip />
-        <Lines onModelClick={onModelClick} />
+        <Lines onModelClick={onModelClick} neonColor={accentColor} />
         <OrbitControls
           enableDamping={true}
           dampingFactor={0.15}

@@ -26,7 +26,7 @@ const sequence = [
   },
 ];
 
-function AboutPanel() {
+function AboutPanel({ theme = "blue", accentColor = "#00faff" }) {
   const [displayedLines, setDisplayedLines] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(true);

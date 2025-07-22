@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function MatrixBackground() {
+export default function MatrixBackground({ color = "#00faff" }) {
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -16,10 +16,10 @@ export default function MatrixBackground() {
     const drops = Array(columns).fill(1);
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 20, 0.15)'; // Slight dark blue fade
+      ctx.fillStyle = 'rgba(0, 0, 20, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#00faff'; // Neon blue
+      ctx.fillStyle = color; // use prop!
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
@@ -34,7 +34,7 @@ export default function MatrixBackground() {
       }
     };
 
-    const interval = setInterval(draw, 33); // ~30 FPS
+    const interval = setInterval(draw, 33);
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
@@ -47,7 +47,7 @@ export default function MatrixBackground() {
       clearInterval(interval);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [color]); // depend on color
 
   return (
     <canvas

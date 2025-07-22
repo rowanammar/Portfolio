@@ -46,15 +46,36 @@ function renderDescription(desc) {
   // Split into lines
   const lines = desc.split(/\n+/);
   return lines.map((line, idx) => {
-    if (line.trim().startsWith('- ')) {
+    if (line.trim().startsWith("- ")) {
       // Bullet point
       return (
-        <li key={idx} style={{ marginBottom: 4, marginLeft: 16, color: '#285ca8', fontSize: '1rem', textAlign: 'left' }}>{line.replace(/^- /, '')}</li>
+        <li
+          key={idx}
+          style={{
+            marginBottom: 4,
+            marginLeft: 16,
+            color: "#285ca8",
+            fontSize: "1rem",
+            textAlign: "left",
+          }}
+        >
+          {line.replace(/^- /, "")}
+        </li>
       );
-    } else if (line.trim() !== '') {
+    } else if (line.trim() !== "") {
       // Paragraph
       return (
-        <p key={idx} style={{ color: '#111', margin: '8px 0', fontSize: '1.05rem', textAlign: 'left' }}>{line}</p>
+        <p
+          key={idx}
+          style={{
+            color: "#111",
+            margin: "8px 0",
+            fontSize: "1.05rem",
+            textAlign: "left",
+          }}
+        >
+          {line}
+        </p>
       );
     } else {
       return null;
@@ -120,22 +141,50 @@ export default function LaptopDesktop() {
             // Remove display: flex and related properties
             position: "relative",
             overflow: "hidden",
+            cursor: 'url("/cursor.cur"), auto',
           }}
         >
           {/* Desktop Icons */}
-          <div className="absolute inset-0 p-10 flex flex-wrap items-start gap-12">
+          <div
+            className="absolute inset-0"
+            style={{
+              display: "grid",
+              gridAutoFlow: "column",
+              gridTemplateRows: "repeat(4, max-content)",
+              alignItems: "center",
+              
+              justifyItems: "start", // <-- align columns to the left
+              height: "100%",
+              width: "100%",
+              overflow: "auto",
+              padding: "24px",
+              gap: "24px 24px", // vertical, horizontal gap
+              gridTemplateColumns: `repeat(auto-fit, 110px)`, // ensure columns are only as wide as needed
+            }}
+          >
             {projects.map((project, idx) => (
               <div
-                key={project.name}
+                key={project.name || idx}
                 className="flex flex-col items-center cursor-pointer group select-none"
-                style={{ width: 110, margin: '0 18px 32px 18px' }}
+                style={{ width: 110, margin: "0 0 4px 0" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.cursor = 'url("/pointer.cur"), auto';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.cursor = 'url("/cursor.cur"), auto';
+                }}
                 onClick={() => setOpenProject(project)}
               >
                 {project.icon ? (
                   <img
                     src={project.icon}
-                    alt={project.name + ' icon'}
-                    style={{ width: 48, height: 48, objectFit: 'contain', marginBottom: 8, filter: 'drop-shadow(0 0 8px #00faff88)' }}
+                    alt={project.name + " icon"}
+                    style={{
+                      width: 48,
+                      height: 48,
+                      objectFit: "contain",
+                      marginBottom: 8,
+                    }}
                   />
                 ) : (
                   <FolderIcon className="mb-2 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_#00faff] transition-transform" />
@@ -143,14 +192,14 @@ export default function LaptopDesktop() {
                 <span
                   className="font-mono text-center group-hover:text-[#00faff] group-hover:drop-shadow-[0_0_10px_#00faff] transition-colors"
                   style={{
-                    display: 'block',
-                    width: '100%',
-                    color: '#000',
-                    fontSize: '0.98rem',
+                    display: "block",
+                    width: "100%",
+                    color: "#fff",
+                    fontSize: "0.98rem",
                     marginTop: 2,
-                    wordBreak: 'break-word',
-                    overflowWrap: 'break-word',
-                    whiteSpace: 'normal',
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
+                    whiteSpace: "normal",
                     lineHeight: 1.2,
                     minHeight: 32,
                   }}
@@ -180,6 +229,8 @@ export default function LaptopDesktop() {
                 display: "flex",
                 flexDirection: "column",
                 overflow: "hidden",
+                
+                 cursor: 'url("/cursor.cur"), auto',
               }}
             >
               {/* Top Bar - Windows maximized style */}
@@ -225,6 +276,7 @@ export default function LaptopDesktop() {
                   onMouseOver={(e) => {
                     e.currentTarget.style.background =
                       "linear-gradient(145deg, #ff7b7b 60%, #b22222 100%)";
+                    e.currentTarget.style.cursor = 'url("/pointer.cur"), auto';
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.background =
@@ -267,34 +319,103 @@ export default function LaptopDesktop() {
                 }}
               >
                 {/* Title */}
-                <h2 style={{ color: '#285ca8', fontWeight: 800, fontSize: '1.45rem', margin: '0 0 2px 0', letterSpacing: '0.01em', textAlign: 'center' }}>{openProject.title}</h2>
+                <h2
+                  style={{
+                    color: "#285ca8",
+                    fontWeight: 800,
+                    fontSize: "1.45rem",
+                    margin: "0 0 2px 0",
+                    letterSpacing: "0.01em",
+                    textAlign: "center",
+                  }}
+                >
+                  {openProject.title}
+                </h2>
                 {/* Subtitle */}
                 {openProject.subtitle && (
-                  <div style={{ color: '#4f8edc', fontSize: '1.05rem', fontStyle: 'italic', marginBottom: 8, textAlign: 'center' }}>{openProject.subtitle}</div>
-                )}
-                <hr style={{ border: 'none', borderTop: '1.5px solid #bcd2ee', margin: '8px 0 12px 0', width: '100%' }} />
-                {/* Description */}
-                <p style={{ color: '#111', margin: '0 0 12px 0', fontSize: '1.08rem', textAlign: 'left', fontWeight: 500 }}>{openProject.description}</p>
-                {/* What to Expect */}
-                {openProject.whatToExpect && openProject.whatToExpect.length > 0 && (
-                  <div style={{ width: '100%', margin: '0 0 18px 0' }}>
-                    <div style={{ color: '#285ca8', fontWeight: 700, fontSize: '1.08rem', marginBottom: 4 }}>What to Expect</div>
-                    <ul style={{ paddingLeft: 22, margin: 0, color: '#285ca8', fontSize: '1rem' }}>
-                      {openProject.whatToExpect.map((item, idx) => (
-                        <li key={idx} style={{ marginBottom: 4, lineHeight: 1.5 }}>{item}</li>
-                      ))}
-                    </ul>
+                  <div
+                    style={{
+                      color: "#4f8edc",
+                      fontSize: "1.05rem",
+                      fontStyle: "italic",
+                      marginBottom: 8,
+                      textAlign: "center",
+                    }}
+                  >
+                    {openProject.subtitle}
                   </div>
                 )}
+                <hr
+                  style={{
+                    border: "none",
+                    borderTop: "1.5px solid #bcd2ee",
+                    margin: "8px 0 12px 0",
+                    width: "100%",
+                  }}
+                />
+                {/* Description */}
+                <p
+                  style={{
+                    color: "#111",
+                    margin: "0 0 12px 0",
+                    fontSize: "1.08rem",
+                    textAlign: "left",
+                    fontWeight: 500,
+                  }}
+                >
+                  {openProject.description}
+                </p>
+                {/* What to Expect */}
+                {openProject.whatToExpect &&
+                  openProject.whatToExpect.length > 0 && (
+                    <div style={{ width: "100%", margin: "0 0 18px 0" }}>
+                      <div
+                        style={{
+                          color: "#285ca8",
+                          fontWeight: 700,
+                          fontSize: "1.08rem",
+                          marginBottom: 4,
+                        }}
+                      >
+                        What to Expect
+                      </div>
+                      <ul
+                        style={{
+                          paddingLeft: 22,
+                          margin: 0,
+                          color: "#285ca8",
+                          fontSize: "1rem",
+                        }}
+                      >
+                        {openProject.whatToExpect.map((item, idx) => (
+                          <li
+                            key={idx}
+                            style={{ marginBottom: 4, lineHeight: 1.5 }}
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 {/* View Code / Live Demo button (moved above GIF) */}
                 <a
-                  href={openProject.link === '#' ? undefined : openProject.link}
-                  target={openProject.link === '#' ? undefined : "_blank"}
-                  rel={openProject.link === '#' ? undefined : "noopener noreferrer"}
+                  href={openProject.link === "#" ? undefined : openProject.link}
+                  target={openProject.link === "#" ? undefined : "_blank"}
+                  rel={
+                    openProject.link === "#" ? undefined : "noopener noreferrer"
+                  }
                   className="mt-1 px-4 py-2 rounded bg-[#4f8edc] text-white font-sans font-bold text-sm shadow hover:bg-[#285ca8] transition-colors"
-                  style={{ boxShadow: "0 1px 4px #3a6ea533", cursor: openProject.link === '#' ? 'pointer' : undefined, marginBottom: 18 }}
-                  onClick={e => {
-                    if (openProject.link === '#') {
+                  style={{
+                    boxShadow: "0 1px 4px #3a6ea533",
+                    cursor: openProject.link === "#" ? "pointer" : undefined,
+                    marginBottom: 18,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.cursor = 'url("/pointer.cur"), auto';
+                  }}
+                  onClick={(e) => {
+                    if (openProject.link === "#") {
                       e.preventDefault();
                       setShowPopup(true);
                     }
@@ -304,12 +425,36 @@ export default function LaptopDesktop() {
                 </a>
                 {/* Demo GIF/image */}
                 {openProject.demo && (
-                  <div style={{ width: '100%', maxWidth: 520, margin: '0 auto 12px auto', textAlign: 'center' }}>
-                    <h3 style={{ color: '#285ca8', fontWeight: 700, fontSize: '1.18rem', marginBottom: 8, letterSpacing: '0.01em' }}>Demo</h3>
+                  <div
+                    style={{
+                      width: "100%",
+                      maxWidth: 520,
+                      margin: "0 auto 12px auto",
+                      textAlign: "center",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        color: "#285ca8",
+                        fontWeight: 700,
+                        fontSize: "1.18rem",
+                        marginBottom: 8,
+                        letterSpacing: "0.01em",
+                      }}
+                    >
+                      Demo
+                    </h3>
                     <img
                       src={openProject.demo}
-                      alt={openProject.title + ' demo'}
-                      style={{ width: '100%', maxWidth: 420, borderRadius: 8, boxShadow: '0 2px 12px #285ca822', border: '1.5px solid #bcd2ee', background: '#fff' }}
+                      alt={openProject.title + " demo"}
+                      style={{
+                        width: "100%",
+                        maxWidth: 420,
+                        borderRadius: 8,
+                        boxShadow: "0 2px 12px #285ca822",
+                        border: "1.5px solid #bcd2ee",
+                        background: "#fff",
+                      }}
                     />
                   </div>
                 )}
@@ -345,104 +490,171 @@ export default function LaptopDesktop() {
       {showPopup && (
         <div
           style={{
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100vw',
-            height: '100vh',
-            background: 'rgba(0,0,0,0.18)',
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0,0,0,0.18)",
             zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: 'url("/cursor.cur"), auto',
           }}
         >
           <div
             style={{
-              background: '#ece9d8',
-              border: '2.5px solid #395fa8',
+              background: "#ece9d8",
+              border: "2.5px solid #395fa8",
               borderRadius: 6,
-              boxShadow: '4px 8px 32px #0007',
+              boxShadow: "4px 8px 32px #0007",
               minWidth: 340,
               minHeight: 120,
-              fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
-              display: 'flex',
-              flexDirection: 'column',
-              overflow: 'hidden',
+              fontFamily: "Tahoma, Verdana, Segoe, sans-serif",
+              display: "flex",
+              flexDirection: "column",
+              overflow: "hidden",
+              cursor: 'url("/cursor.cur"), auto',
             }}
           >
             {/* Title Bar */}
             <div
               style={{
-                background: 'linear-gradient(90deg, #1856b6 0%, #3a7bd5 100%)',
-                color: '#fff',
+                background: "linear-gradient(90deg, #1856b6 0%, #3a7bd5 100%)",
+                color: "#fff",
                 fontWeight: 700,
-                fontSize: '1.08rem',
-                padding: '6px 12px',
-                display: 'flex',
-                alignItems: 'center',
-                borderBottom: '1.5px solid #395fa8',
-                userSelect: 'none',
-                position: 'relative',
+                fontSize: "1.08rem",
+                padding: "6px 12px",
+                display: "flex",
+                alignItems: "center",
+                borderBottom: "1.5px solid #395fa8",
+                userSelect: "none",
+                position: "relative",
+                cursor: 'url("/cursor.cur"), auto',
               }}
             >
-              <svg width="18" height="18" viewBox="0 0 20 20" style={{marginRight: 8}}><circle cx="10" cy="10" r="10" fill="#fff"/><text x="10" y="15" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#1856b6">i</text></svg>
-        
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                style={{ marginRight: 8 }}
+              >
+                <circle cx="10" cy="10" r="10" fill="#fff" />
+                <text
+                  x="10"
+                  y="15"
+                  textAnchor="middle"
+                  fontSize="14"
+                  fontWeight="bold"
+                  fill="#1856b6"
+                >
+                  i
+                </text>
+              </svg>
+
               <button
                 onClick={() => setShowPopup(false)}
                 aria-label="Close"
                 style={{
-                  position: 'absolute',
+                  position: "absolute",
                   right: 6,
                   top: 3,
                   width: 22,
                   height: 22,
-                  background: '#ece9d8',
-                  border: '1.5px solid #888',
+                  background: "#ece9d8",
+                  border: "1.5px solid #888",
                   borderRadius: 2,
-                  color: '#222',
+                  color: "#222",
                   fontWeight: 900,
-                  fontSize: '1.1rem',
-                  cursor: 'pointer',
-                  boxShadow: 'inset 1px 1px 0 #fff',
+                  fontSize: "1.1rem",
+                  cursor: "pointer",
+                  boxShadow: "inset 1px 1px 0 #fff",
                   padding: 0,
                   lineHeight: 1,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
-                onMouseOver={e => e.currentTarget.style.background = '#d6d3c4'}
-                onMouseOut={e => e.currentTarget.style.background = '#ece9d8'}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.cursor = 'url("/pointer.cur"), auto';
+                  e.currentTarget.style.background = "#d6d3c4"
+                }}
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.background = "#ece9d8")
+                }
               >
                 ×
               </button>
             </div>
             {/* Content */}
-            <div style={{ display: 'flex', alignItems: 'center', padding: '24px 24px 12px 24px' }}>
-              <svg width="38" height="38" viewBox="0 0 32 32" style={{marginRight: 18}}><circle cx="16" cy="16" r="16" fill="#3a7bd5"/><text x="16" y="25" textAnchor="middle" fontSize="24" fontWeight="bold" fill="#fff">i</text></svg>
-              <span style={{ color: '#222', fontSize: '1.13rem', fontWeight: 500, textAlign: 'left' }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "24px 24px 12px 24px",
+              }}
+            >
+              <svg
+                width="38"
+                height="38"
+                viewBox="0 0 32 32"
+                style={{ marginRight: 18 }}
+              >
+                <circle cx="16" cy="16" r="16" fill="#3a7bd5" />
+                <text
+                  x="16"
+                  y="25"
+                  textAnchor="middle"
+                  fontSize="24"
+                  fontWeight="bold"
+                  fill="#fff"
+                >
+                  i
+                </text>
+              </svg>
+              <span
+                style={{
+                  color: "#222",
+                  fontSize: "1.13rem",
+                  fontWeight: 500,
+                  textAlign: "left",
+                }}
+              >
                 You are already here!
               </span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '0 18px 18px 0' }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                padding: "0 18px 18px 0",
+              }}
+            >
               <button
                 onClick={() => setShowPopup(false)}
                 style={{
                   minWidth: 80,
-                  padding: '4px 0',
-                  background: 'linear-gradient(180deg, #f8f8f8 0%, #d6d3c4 100%)',
-                  border: '2px outset #fff',
+                  padding: "4px 0",
+                  background:
+                    "linear-gradient(180deg, #f8f8f8 0%, #d6d3c4 100%)",
+                  border: "2px outset #fff",
                   borderRadius: 2,
-                  color: '#222',
+                  color: "#222",
                   fontWeight: 600,
-                  fontSize: '1rem',
-                  boxShadow: 'inset 1px 1px 0 #fff',
+                  fontSize: "1rem",
+                  boxShadow: "inset 1px 1px 0 #fff",
                   marginLeft: 8,
-                  cursor: 'pointer',
-                  fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+                  cursor: 'url("/pointer.cur"), auto',
+                  fontFamily: "Tahoma, Verdana, Segoe, sans-serif",
                 }}
-                onMouseOver={e => e.currentTarget.style.background = '#e4e3de'}
-                onMouseOut={e => e.currentTarget.style.background = 'linear-gradient(180deg, #f8f8f8 0%, #d6d3c4 100%)'}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.background = "#e4e3de")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.background =
+                    "linear-gradient(180deg, #f8f8f8 0%, #d6d3c4 100%)")
+                }
               >
                 OK
               </button>

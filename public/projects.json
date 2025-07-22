@@ -1,20 +1,5 @@
 [
   {
-    "title": "F1 Portal",
-    "subtitle": "Welcome to F1 Portal – a fun and interactive website built to celebrate the thrill of Formula One racing! I created this site as a hands-on project to learn React and bring the excitement of F1 to life.",
-    "description": "A fun and interactive website to celebrate F1, built as a hands-on React project.",
-    "whatToExpect": [
-      "Driver Cards: Flip to reveal team colors and stats.",
-      "3D Animated Circuits: Carousel of F1 tracks with hover details.",
-      "Live Races & Standings: Real-time data from the Ergast API.",
-      "Responsive Design: Looks great on any device."
-    ],
-    "tech": ["React", "CSS", "Ergast API"],
-    "link": "https://formula1-website-3955ba3cn-rawans-projects-9230ed37.vercel.app/",
-    "icon": "/f1.png",
-    "demo": "/f1.gif"
-  },
-  {
     "title": "Dostoevsky Tribute",
     "subtitle": "A tribute website for the great Russian author Fyodor Dostoevsky.",
     "description": "This website is a tribute to the life and works of the renowned Russian writer Fyodor Dostoevsky. It was created as a learning project to explore the usage of Three.js for 3D modeling, CSS animations, and to express admiration for Dostoevsky's literary contributions.",
@@ -31,6 +16,53 @@
     "demo": "/dostoevsky.gif"
   },
   {
+    "title": "F1 Portal",
+    "subtitle": "Welcome to F1 Portal – a fun and interactive website built to celebrate the thrill of Formula One racing! I created this site as a hands-on project to learn React and bring the excitement of F1 to life.",
+    "description": "A fun and interactive website to celebrate F1, built as a hands-on React project.",
+    "whatToExpect": [
+      "Driver Cards: Flip to reveal team colors and stats.",
+      "3D Animated Circuits: Carousel of F1 tracks with hover details.",
+      "Live Races & Standings: Real-time data from the Ergast API.",
+      "Responsive Design: Looks great on any device."
+    ],
+    "tech": ["React", "CSS", "Ergast API"],
+    "link": "https://formula1-website-3955ba3cn-rawans-projects-9230ed37.vercel.app/",
+    "icon": "/f1.png",
+    "demo": "/f1.gif"
+  },
+   {
+    "title": "Egypt Wonders",
+    "subtitle": "Explore the breathtaking treasures of Egypt through a curated travel guide filled with wonder and inspiration.",
+    "description": "An immersive travel guide to Egypt featuring 101 must-see places, hotel recommendations, and user personalization features.",
+    "whatToExpect": [
+      "101 Wonders: Discover detailed descriptions, images, history, prices, and hours for top locations in Egypt.",
+      "Hotels Section: Browse 80 luxurious hotels across 7 cities with interior/exterior previews, pricing, and more.",
+      "User Accounts: Sign up, log in, and save your favorite places for easy access.",
+      "City Quotes: Each city features an inspiring quote to set the tone of your journey.",
+      "Modern UI: Responsive and intuitive interface for both locals and travelers."
+    ],
+    "tech": ["React", "CSS", "Firebase", "JavaScript"],
+    "link": "https://github.com/mohamedosama25/EgyptWonders",
+    "icon": "/egypt.png",
+    "demo": "/egyptwonders.gif"
+  },
+  {
+    "title": "Gomoku (Five in a Row)",
+    "subtitle": "Classic Gomoku strategy game featuring multiple AI opponents, game modes, and a clean GUI.",
+    "description": "A full-featured implementation of Gomoku (Five in a Row) with multiple game modes and intelligent AI opponents, built in Python using Tkinter.",
+    "whatToExpect": [
+      "Multiple Game Modes: Human vs Human, Human vs AI, and AI vs AI.",
+      "Smart AI Agents: Choose from Random, Minimax, or Alpha-Beta AI strategies.",
+      "User-Friendly GUI: Click to place stones on a 15x15 board with clear indicators.",
+      "Console Support: Option to play in text-based mode as well.",
+      "Game Logic: Tracks turns, validates moves, and checks for win conditions."
+    ],
+    "tech": ["Python", "Tkinter", "Minimax", "Alpha-Beta Pruning"],
+    "link": "https://github.com/rowanammar/Gomuko-game-solver",
+    "icon": "/gomoku.png",
+    "demo": "/gomoku.gif"
+  },
+  {
     "title": "This Portfolio (Recursion Edition)",
     "subtitle": "Showcasing my portfolio... inside my portfolio. Is this recursion or just narcissism?",
     "description": "A 3D interactive portfolio built with React, Three.js, and CSS, featuring a floating laptop, glass panels, and a desktop simulation to showcase my projects in a creative way.",
@@ -43,7 +75,8 @@
     ],
     "tech": ["React", "Three.js", "CSS", "Vite"],
     "link": "#",
-    "icon": "/ana.png",
+    "icon": "/anaxp.png",
     "demo": "/portfolio.gif"
   }
-] 
+   
+]

@@ -42,7 +42,7 @@ function centerAndScaleModel(scene, targetSize = 1.7) {
   scene.position.sub(center.multiplyScalar(scale));
 }
 
-export default function Lines({ onModelClick }) {
+export default function Lines({ onModelClick, neonColor = "#00faff" }) {
   const [hovered, setHovered] = useState(null); // index of hovered model
   const [clicked, setClicked] = useState(null); // index of clicked model
 
@@ -57,7 +57,6 @@ export default function Lines({ onModelClick }) {
   const cylinderRadius = 0.65;
   const cylinderHeight = 0.08;
   const cylinderSegments = 32;
-  const neonColor = '#00faff';
 
   // Load all models
   const models = modelFiles.map((file) => useGLTF(file));

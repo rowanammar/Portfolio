@@ -1,4 +1,10 @@
 /* From Uiverse.io by mRcOol7 */
+:root {
+  --accent: #00faff;
+}
+.hacker-green-theme {
+  --accent: #00ff99;
+}
 .contact-panel-outer {
   display: flex;
   flex-direction: column;
@@ -122,4 +128,4 @@
 }
 .light-button.gmail button.bt:hover .light-holder .light.gmail {
   background: linear-gradient(180deg, #D14836 0%, rgba(255,255,255,0) 75%);
-} 
+}
