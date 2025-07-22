@@ -8,6 +8,7 @@ import AboutMeTerminal from "./components/AboutPanel";
 import { useEffect } from "react";
 import DevOpsPanel from "./components/DevOpsPanel";
 import LaptopDesktop from "./components/LaptopDesktop";
+import { Analytics } from "@vercel/analytics/react"
 
 const PANEL_MAP = [
   "projects", // server
@@ -120,6 +121,7 @@ export default function App() {
           {openPanel === "devops" && <DevOpsPanel />}
         </GlassPanel>
       )}
+       <Analytics />
     </div>
   );
 }
