@@ -129,3 +129,15 @@
 .light-button.gmail button.bt:hover .light-holder .light.gmail {
   background: linear-gradient(180deg, #D14836 0%, rgba(255,255,255,0) 75%);
 }
+
+/* CV Button */
+.light-button.cv button.bt:hover .button-holder svg {
+  fill: #d5b13a;
+}
+.light-button.cv button.bt:hover .button-holder {
+  color: #d5b13a;
+  outline: #d5b13a 2px solid;
+}
+.light-button.cv button.bt:hover .light-holder .light.cv {
+  background: linear-gradient(180deg, #d5b13a 0%, rgba(255, 255, 255, 0) 75%);
+}

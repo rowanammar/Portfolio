@@ -8,21 +8,21 @@ const sequence = [
   { type: "command", text: "whoami" },
   { type: "output", text: "Rawan Ehab" },
   { type: "command", text: "ls" },
-  { type: "output", text: "about.txt  skills.txt  hobbies.txt" },
+  { type: "output", text: "about.txt  skills.txt  interests.txt" },
   { type: "command", text: "cat about.txt" },
   {
     type: "output",
-    text: "A senior Computer Science student at Cairo University. Loves learning, building things, and any form of self-expression. \nFavorite color: <span class='cherry-red'>cherry red</span>.",
+    text: "I'm a senior Computer Science student at Cairo University with a strong focus on cloud computing.\nCurrently specializing in AWS Cloud Architecture — building scalable, secure, and resilient cloud-native apps.\nDriven by a love for systems design, DevOps practices, and developer tools. Loves learning, building things, and any form of self-expression. \nFavorite color: <span class='cherry-red'>cherry red</span>.",
   },
   { type: "command", text: "cat skills.txt" },
   {
     type: "output",
     text: `Programming languages: Python, C++, Java, JavaScript, PHP\nTechnologies: AWS, Django, Docker, Git, Linux, MySQL, Vite, React, Vercel\nCurrently studying: AWS Cloud Architecture`,
   },
-  { type: "command", text: "cat hobbies.txt" },
+  { type: "command", text: "cat interests.txt" },
   {
     type: "output",
-    text: `Music lover — Favorite band: Linkin Park\nReading — Favorite book: The Brothers Karamazov, Favorite series: Sherlock Holmes , Favorite author: Fyodor Dostoevsky\nFormula 1 enthusiast — Favorite team: Mercedes AMG\nAnime & Movie fan — Favorite anime: Case Closed`,
+    text: `Lifelong learner & curious debugger\nReading — Dostoevsky, mysteries, and tech blogs\nFormula 1 enthusiast — Team: Mercedes AMG\nMusic head — Linkin Park on loop\nAlso: Big fan of detective anime like Case Closed`,
   },
 ];
 
