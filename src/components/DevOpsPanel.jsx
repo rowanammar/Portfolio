@@ -57,41 +57,8 @@ export default function DevOpsPanel({ accentColor = "var(--accent)" }) {
           }}
         >
           {/* === AWS BADGE 1 FRAME === */}
-          <div
-            style={{
-              minHeight: 80,
-              minWidth: 150,
-              maxWidth: 180,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: accentColor,
-              fontFamily: "Share Tech Mono, monospace",
-              fontSize: "1.1rem",
-              letterSpacing: "0.04em",
-              border: `2px solid ${accentColor}`,
-              borderRadius: "14px",
-              background:
-                "linear-gradient(120deg, #0a0f1a 80%, var(--background-color) 100%)",
-              boxShadow: `0 0 16px ${accentColor}33`,
-              padding: "1.1rem 1.2rem",
-              margin: "0.2rem",
-              position: "relative",
-              transition: "box-shadow 0.2s",
-            }}
-          >
-            <div
-              data-iframe-width="150"
-              data-iframe-height="150"
-              data-share-badge-id="b2e1f9ac-b9d4-4126-87e3-c0f68e2aaa97"
-              data-share-badge-host="https://www.credly.com"
-            ></div>
-            <script
-              type="text/javascript"
-              async
-              src="//cdn.credly.com/assets/utilities/embed.js"
-            ></script>
-          </div>
+         
+          
           {/* === AWS BADGE 2 FRAME === */}
           <div
             style={{
@@ -128,6 +95,8 @@ export default function DevOpsPanel({ accentColor = "var(--accent)" }) {
               src="//cdn.credly.com/assets/utilities/embed.js"
             ></script>
           </div>
+
+          {/* === AWS BADGE 3 FRAME === */}
           <div
             style={{
               minHeight: 80,
@@ -151,17 +120,46 @@ export default function DevOpsPanel({ accentColor = "var(--accent)" }) {
               transition: "box-shadow 0.2s",
             }}
           >
+            <div 
+              data-iframe-width="150" 
+              data-iframe-height="150" 
+              data-share-badge-id="ce2620cc-2169-403c-827f-a8f13234d2de" 
+              data-share-badge-host="https://www.credly.com"
+            ></div>
+            <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+          </div>
+
+          {/* === AWS BADGE 4 FRAME === */}
           <div
-            data-iframe-width="150"
-            data-iframe-height="150"
-            data-share-badge-id="fa192e69-8b40-452c-8bd8-141da232b198"
-            data-share-badge-host="https://www.credly.com"
-          ></div>
-          <script
-            type="text/javascript"
-            async
-            src="//cdn.credly.com/assets/utilities/embed.js"
-          ></script>
+            style={{
+              minHeight: 80,
+              minWidth: 150,
+              maxWidth: 180,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: accentColor,
+              fontFamily: "Share Tech Mono, monospace",
+              fontSize: "1.1rem",
+              letterSpacing: "0.04em",
+              border: `2px solid ${accentColor}`,
+              borderRadius: "14px",
+              background:
+                "linear-gradient(120deg, #0a0f1a 80%, var(--background-color) 100%)",
+              boxShadow: `0 0 16px ${accentColor}33`,
+              padding: "1.1rem 1.2rem",
+              margin: "0.2rem",
+              position: "relative",
+              transition: "box-shadow 0.2s",
+            }}
+          >
+            <div 
+              data-iframe-width="150" 
+              data-iframe-height="150" 
+              data-share-badge-id="e216dc33-ba2e-49e8-8b9f-807f2243d582" 
+              data-share-badge-host="https://www.credly.com"
+            ></div>
+            <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
           </div>
         </div>
       </div>

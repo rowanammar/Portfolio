@@ -15,24 +15,7 @@
     "icon": "/shelf.png",
     "demo": "/dostoevsky.gif"
   },
-    {
-    "title": "Bloom - Serverless Task Manager",
-    "subtitle": "A cloud-native serverless application demonstrating AWS expertise",
-    "description": "Bloom is a production-ready serverless application built entirely on AWS infrastructure. This project showcases advanced cloud architecture skills with a fully serverless backend, implementing best practices for scalability, security, and cost optimization in a real-world application.",
-    "whatToExpect": [
-      "Serverless Architecture: Complete backend built with AWS Lambda, API Gateway, and DynamoDB",
-      "Infrastructure as Code: AWS resources provisioned through the console with meticulous configuration",
-      "Scalable Design: Handles traffic spikes automatically with pay-per-use pricing model",
-      "Security Implementation: IAM roles with least privilege principles and secure API endpoints",
-      "Cloud Storage: Static frontend hosting via S3 with proper bucket policies and CORS configuration",
-      "Monitoring & Logging: Integrated CloudWatch for observability and debugging",
-      "Cost Optimization: Efficient resource usage with no idle costs typical of serverless architecture"
-    ],
-    "tech": ["AWS Lambda", "API Gateway", "DynamoDB", "S3", "IAM", "CloudWatch", "JavaScript", "Python"],
-    "link": "http://bloom-todo.s3-website.eu-north-1.amazonaws.com/",
-    "icon": "/bloom.png",
-    "demo": "/bloom.gif"
-  },
+   
   
    {
     "title": "BiblioSync",
