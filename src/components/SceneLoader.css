@@ -1,0 +1,137 @@
+/* Scene Loader - SVG rotating rings animation */
+
+/* Wrapper that sits on top of the Canvas */
+.scene-loader-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in;
+  opacity: 1;
+}
+
+.scene-loader-wrapper.fade-out {
+  opacity: 0;
+}
+
+.scene-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+@keyframes loader-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.scene-loader-overlay.fade-out {
+  animation: loader-fade-out 0.6s ease-in forwards;
+}
+
+@keyframes loader-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; pointer-events: none; }
+}
+
+.scene-loader-text {
+  margin-top: 18px;
+  font-family: 'Orbitron', 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #00faff;
+  text-shadow: 0 0 12px #00faff88, 0 0 30px #00faff44;
+  animation: loader-text-pulse 2s ease-in-out infinite;
+}
+
+.hacker-green-theme .scene-loader-text {
+  color: #00ff99;
+  text-shadow: 0 0 12px #00ff9988, 0 0 30px #00ff9944;
+}
+
+@keyframes loader-text-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* SVG Frame Container */
+.svg-frame {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-frame svg {
+  position: absolute;
+  transition: .5s;
+  z-index: calc(1 - (0.2 * var(--j)));
+  transform-origin: center;
+  width: 344px;
+  height: 344px;
+  fill: none;
+}
+
+.svg-frame:hover svg {
+  transform: rotate(-80deg) skew(30deg) translateX(calc(45px * var(--i))) translateY(calc(-35px * var(--i)));
+}
+
+.svg-frame svg #center {
+  transition: .5s;
+  transform-origin: center;
+}
+
+.svg-frame:hover svg #center {
+  transform: rotate(-30deg) translateX(45px) translateY(-3px);
+}
+
+#out2 {
+  animation: rotate16 7s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+#out3 {
+  animation: rotate16 3s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+#inner3,
+#inner1 {
+  animation: rotate16 4s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+#center1 {
+  animation: rotate16 2s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes rotate16 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .svg-frame {
+    width: 220px;
+    height: 220px;
+  }
+  .svg-frame svg {
+    width: 260px;
+    height: 260px;
+  }
+  .scene-loader-text {
+    font-size: 0.8rem;
+  }
+}
