@@ -1,4 +1,26 @@
-[
+[{
+     "title": "Atlas of Stories",
+    "subtitle": "A literary map app that brings the stories of your favorite books to life through real-world locations.",
+    "description": "An interactive mapping application where users can search for a book and see every place connected to it, complete with trivia, quotes, and the story behind each location.",
+    "whatToExpect": [
+      "Interactive Map: Navigate literary locations globally using MapLibre GL.",
+      "Book Search: Search for a book to explore where its story happens.",
+      "Location Details: Discover trivia, quotes, and the stories behind the places.",
+      "AI Integration: Leverages Google GenAI to extract and enrich location-based literary content.",
+      "Cloud Infrastructure: Containerized with Docker, deployed on Google Cloud Run, and provisioned via Terraform."
+    ],
+    "tech": [
+      "React",
+      "Node.js",
+      "MapLibre GL",
+      "Google GenAI",
+      "Terraform",
+      "Docker"
+    ],
+    "link": "https://atlas-app-666753333780.us-central1.run.app/",
+    "icon": "/atlas.png",
+    "demo": "/atlas.gif"
+  },
   {
     "title": "Dostoevsky Tribute",
     "subtitle": "A tribute website for the great Russian author Fyodor Dostoevsky.",
@@ -16,21 +38,6 @@
     "demo": "/dostoevsky.gif"
   },
   {
-    "title": "F1 Portal",
-    "subtitle": "Welcome to F1 Portal – a fun and interactive website built to celebrate the thrill of Formula One racing! I created this site as a hands-on project to learn React and bring the excitement of F1 to life.",
-    "description": "A fun and interactive website to celebrate F1, built as a hands-on React project.",
-    "whatToExpect": [
-      "Driver Cards: Flip to reveal team colors and stats.",
-      "3D Animated Circuits: Carousel of F1 tracks with hover details.",
-      "Live Races & Standings: Real-time data from the Ergast API.",
-      "Responsive Design: Looks great on any device."
-    ],
-    "tech": ["React", "CSS", "Ergast API"],
-    "link": "https://formula1-website-3955ba3cn-rawans-projects-9230ed37.vercel.app/",
-    "icon": "/f1.png",
-    "demo": "/f1.gif"
-  },
-   {
     "title": "Egypt Wonders",
     "subtitle": "Explore the breathtaking treasures of Egypt through a curated travel guide filled with wonder and inspiration.",
     "description": "An immersive travel guide to Egypt featuring 101 must-see places, hotel recommendations, and user personalization features.",
