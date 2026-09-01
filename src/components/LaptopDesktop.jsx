@@ -151,7 +151,7 @@ export default function LaptopDesktop() {
               display: "grid",
               gridAutoFlow: "column",
               gridTemplateRows: "repeat(4, max-content)",
-              alignItems: "center",
+              alignItems: "start",
               
               justifyItems: "start", // <-- align columns to the left
               height: "100%",
@@ -184,10 +184,13 @@ export default function LaptopDesktop() {
                       height: 48,
                       objectFit: "contain",
                       marginBottom: 8,
+                      marginLeft: 20, // Shift right slightly to center visually
                     }}
                   />
                 ) : (
-                  <FolderIcon className="mb-2 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_#00faff] transition-transform" />
+                  <div style={{ marginLeft: 20 }}>
+                    <FolderIcon className="mb-2 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_#00faff] transition-transform" />
+                  </div>
                 )}
                 <span
                   className="font-mono text-center group-hover:text-[#00faff] group-hover:drop-shadow-[0_0_10px_#00faff] transition-colors"

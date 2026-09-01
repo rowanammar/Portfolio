@@ -1,4 +1,26 @@
 [{
+    "title": "Curl Chemist",
+    "subtitle": "An autonomous AI agent that detects chemical conflicts in hair products and builds personalized routines.",
+    "description": "A background autonomous agent that goes beyond standard chatbots. It leverages Google Gemini to orchestrate tools, analyze weather conditions, detect chemical conflicts in product ingredients, and schedule personalized hair care routines.",
+    "whatToExpect": [
+      "Autonomous ReAct Agent: AI pipeline using Gemini API for reasoning and Gemma for prompt injection guardrails.",
+      "Chemical Conflict Engine: Detects issues like glycerin usage in high humidity based on ingredient lists.",
+      "Automated Workflows: Triggered daily by Cloud Scheduler to fetch weather data and update routines.",
+      "Zero-Trust API: Secure FastAPI backend with JWT validation and OIDC token verification.",
+      "Cloud Infrastructure: Serverless backend built on Google Cloud Run, Firestore, and automated with Cloud Build."
+    ],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "GCP",
+      "Gemini API",
+      "Docker"
+    ],
+    "link": "https://curl-chemist-159333282951.europe-west1.run.app/",
+    "icon": "/curlchemist.png",
+    "demo": "/curlchemist.gif"
+  },
+  {
      "title": "Atlas of Stories",
     "subtitle": "A literary map app that brings the stories of your favorite books to life through real-world locations.",
     "description": "An interactive mapping application where users can search for a book and see every place connected to it, complete with trivia, quotes, and the story behind each location.",
@@ -52,22 +74,6 @@
     "link": "https://github.com/mohamedosama25/EgyptWonders",
     "icon": "/egypt.png",
     "demo": "/egyptwonders.gif"
-  },
-  {
-    "title": "Gomoku (Five in a Row)",
-    "subtitle": "Classic Gomoku strategy game featuring multiple AI opponents, game modes, and a clean GUI.",
-    "description": "A full-featured implementation of Gomoku (Five in a Row) with multiple game modes and intelligent AI opponents, built in Python using Tkinter.",
-    "whatToExpect": [
-      "Multiple Game Modes: Human vs Human, Human vs AI, and AI vs AI.",
-      "Smart AI Agents: Choose from Random, Minimax, or Alpha-Beta AI strategies.",
-      "User-Friendly GUI: Click to place stones on a 15x15 board with clear indicators.",
-      "Console Support: Option to play in text-based mode as well.",
-      "Game Logic: Tracks turns, validates moves, and checks for win conditions."
-    ],
-    "tech": ["Python", "Tkinter", "Minimax", "Alpha-Beta Pruning"],
-    "link": "https://github.com/rowanammar/Gomuko-game-solver",
-    "icon": "/gomoku.png",
-    "demo": "/gomoku.gif"
   },
   {
     "title": "This Portfolio (Recursion Edition)",

@@ -12,7 +12,7 @@ const sequence = [
   { type: "command", text: "cat about.txt" },
   {
     type: "output",
-    text: "I'm a senior Computer Science student at Cairo University with a strong focus on cloud computing.\nCurrently specializing in AWS Cloud Architecture — building scalable, secure, and resilient cloud-native apps.\nDriven by a love for systems design, DevOps practices, and developer tools. Loves learning, building things, and any form of self-expression. \nFavorite color: <span class='cherry-red'>cherry red</span>.",
+    text: "Computer Science graduate from Cairo University with a strong focus on cloud computing.\nCurrently specializing in Cloud Architecture — building scalable, secure, and resilient cloud-native apps.\nDriven by a love for systems design, DevOps practices, and developer tools. Loves learning, building things, and any form of self-expression. \nFavorite color: <span class='cherry-red'>cherry red</span>.",
   },
   { type: "command", text: "cat skills.txt" },
   {
